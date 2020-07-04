@@ -54,13 +54,13 @@ There`s also a server in nodeJS which provides frontend app with data (https://d
 
 * /coalitions
   returns an array of all coalitions in database.
-  ** /results
+  * /results
      returns total result of every coalition (true, false and manipulation statements)
-  ** /:name/members
+  * /:name/members
      returns all members of a coalition
-  ** /:name
+  * /:name
      return a coalition with given name
-  ** /:name/results
+  * /:name/results
      returns a result for given coalition
       
   
@@ -68,9 +68,9 @@ There`s also a server in nodeJS which provides frontend app with data (https://d
   as above, endpoints with same logic
 * /members
   as above
-  ** /:name
+  * /:name
     returns a member with given name
-  ** /:name/results
+  * /:name/results
     returns results of given member
 
 
