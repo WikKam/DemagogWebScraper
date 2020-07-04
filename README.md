@@ -73,5 +73,6 @@ There`s also a server in nodeJS which provides frontend app with data (https://d
   * /:name/results
     returns results of given member
 
-
+## Frontend
+frontend app can be found here https://github.com/WikKam/DemagogScrapperFrontend
  
