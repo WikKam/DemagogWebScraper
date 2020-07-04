@@ -25,15 +25,17 @@ const db = mongoose.connection
 
 //ADD ALL PARTIES AND COALITIONS
 
-/*allCoalitions.forEach(c => {
+allCoalitions.forEach(c => {
     console.log([...c.parties.entries()])
-    let newCoalition = new Coalition({name: c.name, members:[], parties:[]})
+    console.log(c.url);
+    let newCoalition = new Coalition({name: c.name, members:[], parties:[], url: c.url})
     newCoalition.save()
     .then(result => console.log(result))
     .catch(err => console.groupCollapsed(err));
 })
 allParties.forEach(p => {
-    let newParty = new Party({name: p, members:[]})
+    console.log(p.url);
+    let newParty = new Party({name: p.name, members:[], url: p.url})
     newParty.save()
     .then(result => {
         partyCoalition = allCoalitions.find(coalition => coalition.parties.has(result.name));
@@ -48,20 +50,12 @@ allParties.forEach(p => {
         }
     })
     .catch(err => console.log(err));
-})*/
+})
 
-/*member.addMember({
-    name: "Test test",
-    trueStatements: 0,
-    falseStatements: 0,
-    manipulationStatements: 0,
-    position: 'test',
-    party: 'Koalicja Obywatelska'
-}).then(result => console.log(result)).catch(error => console.log(error));
-*/
+
 
 //ADD ALL MEMBERS
-/*
+
 scrapper.getAllPoliticiansData().then(result => {
     let data = result[0];
     data.forEach(async data => {
@@ -69,7 +63,7 @@ scrapper.getAllPoliticiansData().then(result => {
         console.log(result);
     })
 })
-*/
+
 const memberService = require('./service/memberService');
 
 console.log(memberService)

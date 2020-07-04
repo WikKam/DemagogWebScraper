@@ -34,5 +34,13 @@ router.get('/:name', (req,res) => {
     }).catch(e => res.json(e))
 })
 
+router.get('/:name/results', (req,res) => {
+    let name = req.params.name;
+    memberService.findByName(name).then(result => {
+        res.setHeader('Content-Type', 'application/json');
+        res.json(result);
+    }).catch(e => res.json(e))
+})
+
 module.exports = router;
 

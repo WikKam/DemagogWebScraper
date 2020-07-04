@@ -1,5 +1,6 @@
 const Service = require('./service');
 const memberRepository = require('../repository/memberRepository');
+const partyRepository = require('../repository/partyRepository');
 
 class MemberService extends Service{
     constructor(){
@@ -13,11 +14,23 @@ class MemberService extends Service{
     }
     async getDataOnlyFromParty(party){
         let members = await memberRepository.findAllFromParty(party);
-        return this.countMembersStats(members);
+        let partyInst = await partyRepository.findByName(party);
+        return {
+            ...this.countMembersStats(members),
+            name: party,
+            url: partyInst.url
+        };
     }
     async getDataOnlyFromCoalition(coalition){
         let members = await memberRepository.findAllFromCoalition(coalition);
-        return this.countMembersStats(members);
+        let partyInst = await partyRepository.findByName(coalition);
+        console.log(partyInst);
+        console.log('#############################')
+        return {
+            ...this.countMembersStats(members),
+            name: coalition,
+            url: partyInst.url
+        };
     }
     countMembersStats(members){
         let trueStatements = 0;

@@ -6,7 +6,10 @@ const partySchema = mongoose.Schema({
         type: String,
         unique: true
     },
-    members: [{type: mongoose.Schema.Types.ObjectId, ref: "Member"}]
+    members: [{type: mongoose.Schema.Types.ObjectId, ref: "Member"}],
+    url: {
+        type: String
+    }
 },options)
 const Party = mongoose.model('Party', partySchema);
 module.exports = Party

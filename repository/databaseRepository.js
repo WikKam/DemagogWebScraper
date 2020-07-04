@@ -10,7 +10,7 @@ module.exports = class DatabaseRepository {
         this.model = model
     }
     async findByName(name){
-        let result = await this.model.find({name: name}).exec()
+        let result = await this.model.findOne({name: name}).exec()
         return result;
     }
     async findById(id){
